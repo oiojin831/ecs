@@ -25,6 +25,15 @@ aws s3api create-bucket --bucket oiojin831-muchacho --region ap-southeast-1 --cr
 
 ecs.config에 우리는 default cluster를 사용하지 않기 때문에 container agent가 어떤 cluster에 연결할지 알게 하기위해 ECS_CLUSTER 파라미터를 설정해준다.
 
-bucket에 config파일을 업로드한다.
+```bash
 aws s3 cp ecs.config s3://oiojin831-muchacho/ecs.config
+```
+bucket에 config파일을 업로드한다.
+나중에 ec2 instance를 생성할때 자동으로 실행 시킬 shell
+copy-ecs-config-to-s3 를 생성한다.
+
+# Container Instances
+container instance는 cluster에 등록된 amazon ec2 instance 이다.
+container agent를 통해 connect한다.
+
 
